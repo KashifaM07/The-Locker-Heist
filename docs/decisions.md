@@ -1,6 +1,6 @@
 # Design Decisions — The Locker Heist
 **Binding rulings that govern every commit in this project.**
-Last updated: Commit 1 (Khadija Mazhar, 25F-0532).
+Last updated: Commit 1.
 
 ---
 

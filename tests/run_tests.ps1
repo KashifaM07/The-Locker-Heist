@@ -59,7 +59,12 @@ $buildSucceeded = $false
 
 if ($msbuild -and (Test-Path $slnFile)) {
     Write-Host "  MSBuild located: $msbuild"
-    & $msbuild $slnFile /p:Configuration=Debug /p:Platform=x64 /m /nologo /v:minimal 2>&1
+    $devCmd = "$vsPath\Common7\Tools\VsDevCmd.bat"
+    if (Test-Path $devCmd) {
+        cmd.exe /c "`"$devCmd`" >nul 2>&1 && msbuild `"$slnFile`" /p:Configuration=Debug /p:Platform=x64 /m /nologo /v:minimal"
+    } else {
+        & $msbuild $slnFile /p:Configuration=Debug /p:Platform=x64 /m /nologo /v:minimal 2>&1
+    }
     if ($LASTEXITCODE -eq 0) {
         Write-Host "  [PASS] MSBuild Debug|x64 succeeded" -ForegroundColor Green
         $buildSucceeded = $true

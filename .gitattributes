@@ -1,3 +1,8 @@
-# Normalise line endings to LF on commit and check out with native endings.
-# This prevents the classic Windows/Linux CRLF mismatch that breaks diffs.
+# Normalize line endings
 * text=auto
+
+# Exclude test scripts and PowerShell files from GitHub language statistics so repository shows 100% C++
+*.ps1 linguist-detectable=false
+*.ps1 linguist-vendored
+tests/** linguist-detectable=false
+tests/** linguist-vendored
