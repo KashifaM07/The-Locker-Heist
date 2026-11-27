@@ -1,8 +1,13 @@
 # Normalize line endings
 * text=auto
 
-# Exclude test scripts and PowerShell files from GitHub language statistics so repository shows 100% C++
-*.ps1 linguist-detectable=false
+# Exclude PowerShell test scripts from GitHub language statistics
 *.ps1 linguist-vendored
-tests/** linguist-detectable=false
-tests/** linguist-vendored
+*.ps1 linguist-documentation
+*.ps1 -linguist-detectable
+tests/* linguist-vendored
+tests/* linguist-documentation
+tests/* -linguist-detectable
+tests/results/* linguist-vendored
+tests/results/* linguist-documentation
+tests/results/* -linguist-detectable
